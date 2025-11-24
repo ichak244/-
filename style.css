@@ -1,0 +1,207 @@
+html,
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    transition: .3s ease;
+}
+
+@font-face {
+    font-family: 'Nunito_Sans';
+    src: url(Nunito_Sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf);
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito_Sans';
+    color: #010101;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --white: #fff;
+    --blue: #4F8FF0;
+    --black: #010101;
+}
+
+/* HEADER */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.top-header,
+.bottom-header {
+    background: var(--black);
+}
+
+.container {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* TOP HEADER */
+.contacts {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.contacts address {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-style: normal;
+}
+
+.contacts a {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.call-btn {
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.call-btn:hover {
+    animation: headerColor 2.5s linear forwards;
+}
+
+@keyframes headerColor {
+    0% {
+        color: #7fa9e9;
+    }
+
+    50% {
+        color: #0564f4;
+    }
+
+    100% {
+        color: #2C6CD6;
+    }
+}
+
+/* BOTTOM HEADER */
+.bottom-header {
+    padding: 20px 0;
+    opacity: .76;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo span:first-child {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blue);
+    text-transform: uppercase;
+    line-height: .5;
+}
+
+.logo span:last-child {
+    font-weight: 700;
+    color: var(--white);
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    color: var(--white);
+    font-weight: 600;
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--blue);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.burger span {
+    height: 3px;
+    width: 80%;
+    background: var(--white);
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media(max-width:880px) {
+    nav {
+        display: none;
+    }
+
+    nav.active {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 45%;
+        background: #262323;
+        padding: 1rem;
+        border-radius: 7px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .burger {
+        display: flex;
+    }
+}
+
+@media(max-width:767px) {
+    .contacts {
+        flex-direction: column;
+        gap: 14px;
+    }
+}
